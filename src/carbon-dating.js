@@ -23,8 +23,8 @@ function dateSample(sampleActivity) {
         t = ((Math.log(MODERN_ACTIVITY / +sampleActivity)) * HALF_LIFE_PERIOD) / 0.693;
         t = Math.ceil(t);
 
-        return (t > 0 && t !== Infinity) ? t : false
-    } else return false
+        return (t > 0 && t !== Infinity) ? t : false;
+    } else return false;
 }
 
 

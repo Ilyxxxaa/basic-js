@@ -17,16 +17,26 @@ function transform(arr) {
     if (Array.isArray(arr)) {
         let a = [];
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i] == '--discard-next') {
+            console.log(arr[i]);
+            if (typeof arr[i] === 'number') {
+                a.push(arr[i]);
+            } else if (arr[i] == '--discard-next') {
                 i++;
-            } else if (arr[i] == '--discard-prev') {
+            } else if (arr[i] == '--discard-prev' && arr[i - 2] !== '--discard-next') {
                 a.pop();
-            } else if (arr[i] == '--double-next') {
+                console.log(a);
+            } else if (arr[i] == '--double-next' && i !== arr.length - 1) {
                 a.push(arr[i + 1]);
-            } else if (arr[i] == '--double-prev') {
+                console.log(a);
+            } else if (arr[i] == '--double-prev' && arr[i - 2] !== '--discard-next' && i !== 0) {
                 a.push(arr[i - 1]);
-            } else a.push(arr[i]);
+                console.log(a);
+            } else if (arr[i] !== '--discard-next' && arr[i] !== '--discard-prev' && arr[i] !== '--double-next' && arr[i] !== '--double-prev') {
+                a.push(arr[i]);
+            }
+            console.log(a);
         }
+        console.log(a);
         return a;
     } else throw new Error(`'arr' parameter must be an instance of the Array!`);
 

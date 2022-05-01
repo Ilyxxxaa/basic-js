@@ -17,8 +17,8 @@ function createDreamTeam(members) {
     if (Array.isArray(members) == true) {
         let teamName = '';
         members.forEach((item) => {
-            if (typeof(item) == 'string' && item) {
-                item.trim();
+            if (typeof(item) == 'string') {
+                // item.trim();
                 teamName += item[0];
                 console.log(teamName);
             }
@@ -34,6 +34,7 @@ function createDreamTeam(members) {
         return teamName;
     } else return false;
 }
+
 
 
 module.exports = {
